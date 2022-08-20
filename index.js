@@ -1,5 +1,7 @@
 const { Client, GatewayIntentBits } = require("discord.js");
 
+let token = "";
+
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -71,4 +73,4 @@ client.on("messageCreate", message => {
 });
 
 
-client.login("MTAxMDYxMTEyNjU3ODQ1MDU0Mw.GQuYKv.CxTZwvPC1TeFXkzI03RU4BEQlSDoQYMcTnpYd8")
+client.login(token);
