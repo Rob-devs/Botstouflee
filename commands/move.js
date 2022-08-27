@@ -1,6 +1,6 @@
 module.exports = (message, command, args, client) => {
 
-    if (!message.author.roles.cache.some(role => role.name === 'Modstouflee')) {
+    if (!message.member.roles.cache.some(role => role.name === 'Modstouflee')) {
         message.react('🟥');
         message.channel.send("Il faut le rôle \"Modstouflee\" pour utiliser cette commande !");
         return;
