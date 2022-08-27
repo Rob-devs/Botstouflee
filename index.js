@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, DiscordjsErrorMixin } = require("discord.js");
+const { Client, GatewayIntentBits, AttachmentBuilder } = require("discord.js");
 require("dotenv").config();
 
 const client = new Client({
@@ -11,6 +11,7 @@ const client = new Client({
 
 const prefixCmd = '&';
 const Discord = require('discord.js');
+const Canvas = require('@napi-rs/canvas');
 
 client.on("ready", () => {
     //Message de status
@@ -18,7 +19,7 @@ client.on("ready", () => {
     console.log("Bot ready");
 });
 
-client.on("messageCreate", message => {
+client.on("messageCreate", async message => {
     //Si le message n'est pas une commande ou vient d'un bot, pas de traitement
     if (!message.content.startsWith(prefixCmd) || message.author.bot) return
 
@@ -26,6 +27,7 @@ client.on("messageCreate", message => {
     const args = message.content.slice(prefixCmd.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
+    //Commandes
     if (command === "choupiz") {
         if (args.length < 1 || !(/<@.*>/.test(args[0]))) {
             message.react('🟥');
@@ -104,6 +106,11 @@ client.on("messageCreate", message => {
                     name: prefixCmd + "quoi",
                     value: "Définit un nombre important de règles nécessaires",
                     inline: false
+                },
+                {
+                    name: prefixCmd + "hug @user",
+                    value: "Anything for family",
+                    inline: false
                 }
             ])
 
@@ -157,25 +164,33 @@ client.on("messageCreate", message => {
         message.channel.send("╔═══˚✩ ⋆. ̊ \n     ✧ 𝑯𝑬𝑳𝑳𝑶 𝑪𝑯𝑨𝑻 ✧\n                       ˚✩ ⋆. ̊═══╝");
     }
     else if (command === "culture") {
-        let replies = ["Le sexe entre deux personnes, c'est beau. Entre cinq personnes, c'est fantastique...",
-            "La différence entre le sexe et la mort, c'est que mourir, vous pouvez le faire seul, et personne ne se moquera de vous.",
-            "Une femme veut beaucoup de sexe avec l'homme qu'elle aime. Un homme veut beaucoup de sexe.",
-            "Quand les anges auront un sexe j'aurai des ailes",
-            "Le sexe apaise les tensions. L'amour les provoque.",
-            "Le sexe n'est pas l'amour, ce n'est qu'un territoire que l'amour s'approprie.",
-            "Le ramollissement du sexe durcit le coeur.",
-            "Le sexe, c'est ce qu'il y a de profond entre l'homme et la femme.",
-            "Est-ce que le sexe est sale ? Seulement quand il est bien fait.",
-            "Le sexe est le baromètre des sentiments.",
-            "L'argent peut acheter une maison, mais pas un foyer. Il peut acheter le lit, mais pas le sommeil. Il peut acheter une horloge, mais pas le temps. Il peut acheter un livre, mais pas la connaissance. Il peut acheter une position, mais pas le respect. Il peut acheter du sexe, mais pas l'amour !",
-            "Le sexe est le prix que les femmes paient pour se marier. Le mariage est le prix que les hommes paient pour avoir du sexe.",
-            "Le sexe masculin est ce qu'il y a de plus léger au monde, une simple pensée le soulève.",
-            "Pourquoi le sexe occupe t-il tant notre esprit ? Parce qu'il est l'échappatoire suprême. C'est la voie ultime vers l'oublie de soi absolu.",
-            "Il n’y a pas de sagesse au-dessous de la ceinture.",
-            "TEAM BOOBA"];
-        let random = Math.floor(Math.random() * replies.length);
+        var dict = {
+            "L'obsidienne possède de puissantes propriétés nettoyantes et peut éliminer l'énergie négative de vous-même et de votre environnement. Cela lui permet également de neutraliser les vibrations perturbatrices. L'obsidienne supprime les blocages, les peurs et les pensées qui se limitent. Comme de fortes émotions peuvent survenir lors de la libération, la pierre n'est pas destinée aux personnes très sensibles. Avec ses propriétés nettoyantes en profondeur, il est important de nettoyer régulièrement la pierre (de préférence après chaque utilisation). Enracinant, nettoyant en profondeur, détoxifiant, illumine l'esprit.": "Wikipedia",
+            "Va voir à l'ehpad, le sexe est sale quand la toilette est mal faite ... c'est à dire tous les jours": "Xoxtin",
+            "Moins que le rat, le zebre fait concensus plus facilement": "Xoxtin",
+            "elle a le palais détruit, go l'amener rue d'arshot elle est plus bonne qu'a avaler des bites": "Xoxtin",
+            "VIVE LA CLEAVE": "Tout le monde",
+            "Tu prends alots et bbk et boom boom": "Darksoul",
+            "T1: alots 314, T2: ran 315": "Hans",
+            "J'ai besoin d'amour et comme j'ai pas de meuf sg me donne des ml pour me consoler": "Daarky",
+            "Sg bande de sombre p*te si vous me donnez pas des ml 5 je vais venir toquer a votre porte er vous brisé les genoux bande de catin de mes deux": "Daarky",
+            "Crois en la cleave et la cleave te le rendra": "Daarky",
+            "Toute la famille de sg va finir au goulag en 1v1 contre moi\nJe vais les exterminer c petite salope": "Daarky",
+            "Utilisation simple et sans bavure de la méthode": "Soow",
+            "Elle avait un cul qui ne se refuse pas": "EFX",
+            "je lui explose son fion jusqu'à ce qu'elle soit incontinente et elle en tombera amoureuse de moi": "EFX",
+            "Bruh je t'assure que si je pouvais l'avoir à portée de chibre elle marcherait en canard avec un air hagard": "EFX",
+            "VIVE LA SPEED": "Bistouflee",
+            "c'était fort sur les perso comme carrot/atywin & co où t'avais vraiment envie que ces persos soient dans le mal vu que les compos étaient très différentes, là normalement une hwa c'est ce qu'on peut appeler \"une ancre\" qui te permet de te reposer dessus si jamais tu veux pivoter sur plusieurs styles de jeu (Aria, Aravi et accessoirement Sylvian sont des ancres). C'est juste là pour te rappeler que tu peux pas stall, et que tu dois draft pour counter cette ancre particulière, et si tu le fais, bah le mec en face pivote pour te counter tes picks si possible (vu que tous le monde à pas tous les persos de gear).": "Fhulgrim",
+            "Tout arrive plus vite à qui court après": "Punch",
+            "Tu perds pas car il meilleur que toi mais car t'es un 1head , même si tu chill contre du top200 là t'aurais perdu car c'est juste ton cerveau le problème": "Punch",
+            "Il faut bien sympathiser avec le diable quand on combat les flammes": "Monstur",
+            "ah non moi j'ai autant de charisme que ervalen": "Celaloose",
+        };
+        const keys = Object.keys(dict);
+        let random = Math.floor(Math.random() * keys.length);
 
-        message.reply("*\"" + replies[random] + "\"*" + "\n\n**Botstouflee**");
+        message.channel.send("*\"" + keys[random] + "\"*" + "\n\n**" + dict[keys[random]] + "**");
     }
     else if (command === "efx") {
         let alper = ["https://cdn.discordapp.com/emojis/989603680712032326.webp?size=96&quality=lossless",
@@ -199,6 +214,27 @@ client.on("messageCreate", message => {
     else if (command === "quoi") {
         message.reply("feur");
         message.channel.send(client.user.displayAvatarURL());
+    }
+    else if (command === "hug") {
+        if (args.length < 1 || !(/<@.*>/.test(args[0]))) {
+            message.react('🟥');
+            message.channel.send("Commande invalide");
+            return;
+        }
+
+        let userID = args.shift();
+        userID = userID.substring(2, userID.length - 1);
+
+        const canvas = Canvas.createCanvas(500, 500);
+        const context = canvas.getContext('2d');
+
+        const avatar = await Canvas.loadImage(client.users.cache.find(user => user.id === userID).displayAvatarURL());
+        context.drawImage(avatar, 100, 0, 500, 500);
+
+        const background = await Canvas.loadImage('./images/hug.png');
+        context.drawImage(background, 0, 0, canvas.width, canvas.height);
+        const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'profile-image.png' });
+        message.channel.send({ files: [attachment] });
     }
 });
 
