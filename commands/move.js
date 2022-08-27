@@ -1,4 +1,11 @@
 module.exports = (message, command, args, client) => {
+
+    if (!message.author.roles.cache.some(role => role.name === 'Modstouflee')) {
+        message.react('🟥');
+        message.channel.send("Il faut le rôle \"Modstouflee\" pour utiliser cette commande !");
+        return;
+    }
+
     //Image envoyé dans le message, null s'il n'y en a pas
     const image = message.attachments.first() ? message.attachments.first().url : null;
 
