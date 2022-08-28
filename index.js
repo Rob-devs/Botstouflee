@@ -20,8 +20,16 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", message => {
-    //Si le message n'est pas une commande ou vient d'un bot, pas de traitement
-    if (!message.content.startsWith(prefixCmd) || message.author.bot) return
+    //Si le message vient d'un bot, on ne traite pas
+    if (message.author.bot) return;
+
+    //Si c'est un rapport Epic Report
+    if (message.content.startsWith("[Epic Report]")) {
+        require("./commands/epicreport.js")(message);
+        return;
+    }
+
+    if (!message.content.startsWith(prefixCmd)) return;
 
     //Récupération des paramètres envoyés
     const args = message.content.slice(prefixCmd.length).trim().split(/ +/);

@@ -5,6 +5,8 @@ module.exports = (message) => {
         "Moins que le rat, le zebre fait concensus plus facilement": "Xoxtin",
         "elle a le palais détruit, go l'amener rue d'arshot elle est plus bonne qu'a avaler des bites": "Xoxtin",
         "y'a jamais de mauvais moment pour sortir sa bite": "Xoxtin",
+        "C'est important pour pouvoir taper dans le fond d'en avoir une bien dure": "Xoxtin",
+        "Tu attrapes la queue, tu glisses les boules dans ta bouche, et tu tires délicatement pour les décoller de la queue": "Xoxtin",
         "VIVE LA CLEAVE": "Tout le monde",
         "Tu prends alots et bbk et boom boom": "Darksoul",
         "T1: alots 314, T2: ran 315": "Hans",

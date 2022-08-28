@@ -6,91 +6,107 @@ module.exports = async (message, prefixCmd) => {
     //Generate pages
     const pages = [];
     pages.push(new Discord.EmbedBuilder()
-        .setTitle("**Liste des commandes disponibles**")
-        .setColor(0x8d4294)
+        .setTitle("**Liste des commandes**")
+        .setColor(0xff96fb)
         .setTimestamp(Date.now())
-        .setDescription("*Page 1/2*")
+        .setDescription("*Page 1/3*")
         .setFooter({
             iconURL: message.author.displayAvatarURL(),
-            text: message.author.tag
+            text: "Demandé par " + message.author.tag
         })
         .addFields([
             {
                 name: prefixCmd + "help",
-                value: "`Liste des commandes disponibles`",
-                inline: false
-            },
-            {
-                name: prefixCmd + "hello",
-                value: "`Règle n°1 : toujours être gentil avec les choupiz`",
+                value: "✦ Liste des commandes disponibles",
                 inline: false
             },
             {
                 name: prefixCmd + "g #channel1 #channel2.. [message | image]",
-                value: "`Copie le message ou l'image dans le channel`",
+                value: "✦ `Copie message` / `image` dans le(s) `channel(s)`\n*Nécessite le rôle \"Modstouflee\"*",
                 inline: false
             },
             {
                 name: prefixCmd + "s #channel1 #channel2.. [message | image]",
-                value: "`Déplace le message ou l'image dans le channel`",
+                value: "✦ `Déplace message` / `image` dans le(s) `channel(s)`\n*Nécessite le rôle \"Modstouflee\"*",
                 inline: false
             },
             {
-                name: prefixCmd + "fusee",
-                value: "`Qu'est ce que c'est que ce truc là aussi ?`",
+                name: "[Epic Report]",
+                value: "✦ Botstouflee converti automatiquement les rapports\ngénérés par Epic Report.",
                 inline: false
             },
-            {
-                name: prefixCmd + "mission",
-                value: "`Target down...`",
-                inline: false
-            }
         ]));
     pages.push(new Discord.EmbedBuilder()
-        .setTitle("**Liste des commandes disponibles**")
-        .setColor(0x8d4294)
+        .setTitle("**Liste des commandes**")
+        .setColor(0xff96fb)
         .setTimestamp(Date.now())
-        .setDescription("*Page 2/2*")
+        .setDescription("*Page 2/3*")
         .setFooter({
             iconURL: message.author.displayAvatarURL(),
-            text: message.author.tag
+            text: "Demandé par " + message.author.tag
         })
         .addFields([
             {
                 name: prefixCmd + "choupiz @user",
-                value: "`eh oui les choupiz !!`",
-                inline: false
-            },
-            {
-                name: prefixCmd + "culture",
-                value: "`-Botstouflee, philisophe moderne`",
-                inline: false
-            },
-            {
-                name: prefixCmd + "efx",
-                value: "`Obtiens un Alper aléatoire !!!`",
-                inline: false
-            },
-            {
-                name: prefixCmd + "bunny",
-                value: "`misete ageru, BUNNY NO CHIKARA !`",
-                inline: false
-            },
-            {
-                name: prefixCmd + "quoi",
-                value: "`Définit un nombre important de règles nécessaires`",
+                value: "✦ eh oui les choupiz !!",
                 inline: false
             },
             {
                 name: prefixCmd + "hug [@user]",
-                value: "`Anything for family`",
+                value: "✦ Câlin général !",
                 inline: false
             },
             {
                 name: prefixCmd + "hat [@user]",
-                value: "`Tu as fait tomber ton chapeau`",
+                value: "✦ Tu as fait tomber ton chapeau",
                 inline: false
-            }
+            },
+            {
+                name: prefixCmd + "bunny",
+                value: "✦ *misete ageru, BUNNY NO CHIKARA !*",
+                inline: false
+            },
+            {
+                name: prefixCmd + "quoi",
+                value: "✦ Définit un nombre `important` de règles `nécessaires`",
+                inline: false
+            },
+        ]));
+    pages.push(new Discord.EmbedBuilder()
+        .setTitle("**Liste des commandes**")
+        .setColor(0xff96fb)
+        .setTimestamp(Date.now())
+        .setDescription("*Page 3/3*")
+        .setFooter({
+            iconURL: message.author.displayAvatarURL(),
+            text: "Demandé par " + message.author.tag
+        })
+        .addFields([
+            {
+                name: prefixCmd + "hello",
+                value: "✦ Règle n°1 : toujours être gentil avec les choupiz",
+                inline: false
+            },
+            {
+                name: prefixCmd + "mission",
+                value: "✦ *Target down...*",
+                inline: false
+            },
+            {
+                name: prefixCmd + "culture",
+                value: "✦ Parole des plus célèbres choupiz",
+                inline: false
+            },
+            {
+                name: prefixCmd + "efx",
+                value: "✦ Obtiens un Alper aléatoire !!!",
+                inline: false
+            },
+            {
+                name: prefixCmd + "fusee",
+                value: "✦ Qu'est ce que c'est que ce truc là aussi ?",
+                inline: false
+            },
         ]));
 
     let page = 0;
@@ -118,7 +134,7 @@ module.exports = async (message, prefixCmd) => {
     const col = msg.createMessageComponentCollector({
         componentType: ComponentType.Button,
         filter: i => i.user.id === message.author.id,
-        time: 50000
+        time: 300000
     });
 
     col.on('collect', (i) => {
