@@ -94,7 +94,7 @@ module.exports = (message) => {
 
     //Lecture du message Epic Report
     const lines = message.content.split("\n");
-    if (lines.length < 34) {
+    if (lines.length < 32) {
         message.react('🟥');
         message.channel.send("Format du rapport invalide");
         return;
