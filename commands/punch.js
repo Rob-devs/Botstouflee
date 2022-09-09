@@ -15,7 +15,15 @@ module.exports = async (message, args, client) => {
         //Récupération de l'avatar de l'utilisateur
         let userID = args.shift();
         userID = userID.substring(2, userID.length - 1);
-        avatar = await Canvas.loadImage(client.users.cache.find(user => user.id === userID).displayAvatarURL());
+
+        //Si c'est Botstouflee qui est ping, inverse le poing
+        if (userID == require("../utils/botID.js")) {
+            avatar = await Canvas.loadImage(message.author.displayAvatarURL());
+            punch = './images/punchback.png'
+        }
+        else {
+            avatar = await Canvas.loadImage(client.users.cache.find(user => user.id === userID).displayAvatarURL());
+        }
     }
 
     //Création de l'image à compléter
@@ -32,4 +40,12 @@ module.exports = async (message, args, client) => {
     //Envoi de l'image
     const attachment = new AttachmentBuilder(await canvas.encode('png'), { name: 'profile-image.png' });
     message.channel.send({ files: [attachment] });
+
+    //Envoi du message supplémentaire
+    if (punch == './images/punchback.png') {
+        message.channel.send("**KNOW YOUR PLACE !!**");
+    }
+    else {
+        message.channel.send("**Correct your posture**");
+    }
 }
