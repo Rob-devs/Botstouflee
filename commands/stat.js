@@ -19,7 +19,7 @@ module.exports = async (message, args, client) => {
         //Sinon
         else {
             //Ajout du mot
-            newMessage += element;
+            newMessage += element.replace(/[*`_~]/g, '');
         }
         //Espacement entre les mots
         newMessage += " ";
