@@ -57,18 +57,18 @@ module.exports = async (message, prefixCmd) => {
                 inline: false
             },
             {
+                name: prefixCmd + "punch [@user]",
+                value: "✦ Quel vilain celui-là !!!",
+                inline: false
+            },
+            {
                 name: prefixCmd + "hat [@user]",
                 value: "✦ Tu as fait tomber ton chapeau",
                 inline: false
             },
             {
-                name: prefixCmd + "bunny",
-                value: "✦ *misete ageru, BUNNY NO CHIKARA !*",
-                inline: false
-            },
-            {
-                name: prefixCmd + "quoi",
-                value: "✦ Définit un nombre `important` de règles `nécessaires`",
+                name: prefixCmd + "stat",
+                value: "✦ Calculer tes chances de succès !!",
                 inline: false
             },
         ]));
@@ -105,6 +105,16 @@ module.exports = async (message, prefixCmd) => {
             {
                 name: prefixCmd + "fusee",
                 value: "✦ Qu'est ce que c'est que ce truc là aussi ?",
+                inline: false
+            },
+            {
+                name: prefixCmd + "bunny",
+                value: "✦ *misete ageru, BUNNY NO CHIKARA !*",
+                inline: false
+            },
+            {
+                name: prefixCmd + "quoi",
+                value: "✦ Définit un nombre `important` de règles `nécessaires`",
                 inline: false
             },
         ]));

@@ -29,7 +29,11 @@ client.on("messageCreate", message => {
         return;
     }
 
-    if (!message.content.startsWith(prefixCmd)) return;
+    //Test du suffixe
+    if (!message.content.startsWith(prefixCmd)) {
+        require("./commands/suffix.js")(message);
+        return;
+    }
 
     //Récupération des paramètres envoyés
     const args = message.content.slice(prefixCmd.length).trim().split(/ +/);
@@ -71,8 +75,14 @@ client.on("messageCreate", message => {
         case "hug":
             require("./commands/hug.js")(message, args, client);
             break;
+        case "punch":
+            require("./commands/punch.js")(message, args, client);
+            break;
         case "hat":
             require("./commands/hat.js")(message, args, client);
+            break;
+        case "stat":
+            require("./commands/stat.js")(message);
             break;
         default:
             break;
