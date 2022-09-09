@@ -1,3 +1,4 @@
+//Envoie un contenu bunny aléatoire
 module.exports = (message) => {
     let bunnygif = ["https://media.giphy.com/media/noAv4Zvd3PYUKWQVT3/giphy.gif",
         "https://media.discordapp.net/attachments/788046506388750416/934525925683523604/BUNNYSTRONG.gif",

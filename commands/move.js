@@ -1,10 +1,5 @@
+//Déplacement d'un message envoyé dans le channel spécifié
 module.exports = (message, command, args, client) => {
-
-    if (!message.member.roles.cache.some(role => role.name === 'Modstouflee')) {
-        message.react('🟥');
-        message.channel.send("Il faut le rôle \"Modstouflee\" pour utiliser cette commande !");
-        return;
-    }
 
     //Image envoyé dans le message, null s'il n'y en a pas
     const image = message.attachments.first() ? message.attachments.first().url : null;
@@ -20,11 +15,13 @@ module.exports = (message, command, args, client) => {
     let chanIDs = [];
     let done = false;
 
+    //Récupération de la liste des channels où envoyer le message
     while (args.length > 0 && (/<#.*>/.test(args[0]))) {
         let chanID = args.shift();
         chanID = chanID.substring(2, chanID.length - 1);
         chanIDs.push(chanID);
     }
+    //Si ni image ni contenu
     if (args.length == 0 && (image == null)) {
         message.react('🟥');
         message.channel.send("Commande invalide");
@@ -40,6 +37,7 @@ module.exports = (message, command, args, client) => {
         newMessage += "On m'a dit de transférer ça :"
     }
 
+    //Envoi du message à chaque channel
     chanIDs.forEach(ID => {
         let newChannel = client.channels.cache.get(ID);
         //Envoi du message si le chan existe
@@ -54,6 +52,7 @@ module.exports = (message, command, args, client) => {
             message.channel.send("Pas de channel trouvé");
         }
     });
+    //Si l'action s'est bien passée
     if (done) {
         if (command === "g")
             message.react('✅');

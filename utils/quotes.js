@@ -1,4 +1,7 @@
+//Liste des citations
 module.exports = {
+
+    //"Citation": "Auteur"
     "Va voir à l'ehpad, le sexe est sale quand la toilette est mal faite ... c'est à dire tous les jours": "Xoxtin",
     "elle a le palais détruit, go l'amener rue d'arshot elle est plus bonne qu'a avaler des bites": "Xoxtin",
     "y'a jamais de mauvais moment pour sortir sa bite": "Xoxtin",

@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require("discord.js");
 
+//Fonction transformant l'icone générée par Epic Report en icone pour le rapport Botstouflee
 function getCircleFromSquare(square) {
     switch (square) {
         case "🟥":
@@ -18,6 +19,7 @@ function getCircleFromSquare(square) {
     };
 };
 
+//Formatage selon les sets et informations additionnels
 function getOtherInfos(sets, commentary) {
     let infos = "";
 
@@ -31,6 +33,7 @@ function getOtherInfos(sets, commentary) {
     return infos;
 };
 
+//Réinterpréter un rapport Epic Report
 module.exports = (message) => {
 
     //Construction des objets

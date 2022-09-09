@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require("discord.js");
 
+//Création de la page d'aide
 module.exports = async (message, prefixCmd) => {
 
     //Generate pages
@@ -67,7 +68,7 @@ module.exports = async (message, prefixCmd) => {
                 inline: false
             },
             {
-                name: prefixCmd + "stat",
+                name: prefixCmd + "stat [message]",
                 value: "✦ Calculer tes chances de succès !!",
                 inline: false
             },

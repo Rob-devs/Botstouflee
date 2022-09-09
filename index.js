@@ -9,17 +9,19 @@ const client = new Client({
     ]
 });
 
+//Préfixe des commandes
 const prefixCmd = '&';
-const Discord = require('discord.js');
-const Canvas = require('@napi-rs/canvas');
 
+//Lorsque le bot est prêt
 client.on("ready", () => {
     //Message de status
     client.user.setActivity(prefixCmd + 'help');
     console.log("Bot ready");
 });
 
+//Lorsqu'un message est envoyé
 client.on("messageCreate", message => {
+
     //Si le message vient d'un bot, on ne traite pas
     if (message.author.bot) return;
 
@@ -70,7 +72,7 @@ client.on("messageCreate", message => {
             require("./commands/bunny.js")(message);
             break;
         case "quoi":
-            require("./commands/quoi.js")(message, client);
+            require("./commands/quoi.js")(message);
             break;
         case "hug":
             require("./commands/hug.js")(message, args, client);
@@ -82,7 +84,7 @@ client.on("messageCreate", message => {
             require("./commands/hat.js")(message, args, client);
             break;
         case "stat":
-            require("./commands/stat.js")(message);
+            require("./commands/stat.js")(message, args, client);
             break;
         default:
             break;
