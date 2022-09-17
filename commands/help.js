@@ -32,6 +32,11 @@ module.exports = async (message, prefixCmd) => {
                 inline: false
             },
             {
+                name: prefixCmd + "c [message]",
+                value: "✦ Parle avec Botstouflee !!",
+                inline: false
+            },
+            {
                 name: "[Epic Report]",
                 value: "✦ Botstouflee converti automatiquement les rapports\ngénérés par Epic Report.",
                 inline: false
@@ -69,7 +74,7 @@ module.exports = async (message, prefixCmd) => {
             },
             {
                 name: prefixCmd + "stat [message]",
-                value: "✦ Calculer tes chances de succès !!",
+                value: "✦ Calcule tes chances de succès !!",
                 inline: false
             },
         ]));

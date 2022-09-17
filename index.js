@@ -10,7 +10,7 @@ const client = new Client({
 });
 
 //Préfixe des commandes
-const prefixCmd = '²';
+const prefixCmd = '&';
 
 //Lorsque le bot est prêt
 client.on('ready', () => {

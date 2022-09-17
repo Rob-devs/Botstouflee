@@ -1,5 +1,3 @@
-const alexa = require('alexa-bot-api-v4');
-const ai = new alexa();
 const cleverbot = require('cleverbot-free');
 
 // Array : [[id, Date]]

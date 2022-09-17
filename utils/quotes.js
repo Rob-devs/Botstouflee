@@ -48,7 +48,7 @@ module.exports = {
     "formula adin\nkalashnikov dra dra\nwe're going to moscow": "Zickys",
     "Pendant les scènes de sex je regarde les commentaires en attendant la suite du scénario": "D4",
     "Uwu guys i missed the \"chaussette sales\" from vivian, did someone know where they are ?\nOwO\nBAKA BAKA BAKA BAKA DE PEEPO DE PERFO": "Rossi",
-    "Mon ADN supérieur ma permis de voir en soow un bon leader (chef/meneur/dirigeant)  supreme et donc noius pouvons en déduire que soow est le meilleur": "Rossi",
+    "Mon ADN supérieur ma permis de voir en soow un bon leader (chef/meneur/dirigeant)  supreme et donc nous pouvons en déduire que soow est le meilleur": "Rossi",
     "Je men vais taper une queue de l'enfer pour faire sortir les larmes de ma bite": "DeadNobody",
     "Les herbivores vous foutez quoi sur discord allez dans les prés brouter": "Gofri",
     "de trop gros branleurs vous me tirez vers le bas": "Gofri",
