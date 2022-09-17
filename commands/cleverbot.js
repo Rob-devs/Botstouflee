@@ -1,4 +1,5 @@
 const cleverbot = require('cleverbot-free');
+const Discord = require('discord.js');
 
 // Array : [[id, Date]]
 var userHistory = [];
@@ -32,40 +33,46 @@ const checkUser = (id) => {
 };
 
 //Envoi un message à cleverbot et renvoie sa réponse
-module.exports = (message) => {
-  var messageString = message.content.split('&c ')[1];
+module.exports = (message, args) => {
 
+  //Construction du message
+  messageString = "";
+  args.forEach(element => {
+    messageString += element + " ";
+  });
+  messageString.trim();
+  if (messageString == "") {
+    message.react('🟥');
+    message.channel.send("Commande invalide");
+    return;
+  }
   var userIndex = checkUser(message.author.id);
 
   // Premier message avec le bot
   if (userIndex === -1) {
-    try {
-      cleverbot(messageString).then((response) => {
-        // Création de l'user et début de conv dans l'historique
-        userHistory.push([message.author.id, new Date().getTime()]);
-        history.push([messageString, response]);
+    cleverbot(messageString).catch(error => {
+      console.log(error);
+      message.reply("*Bip Boop- Reboot 100%*");
+      return;
+    }).then((response) => {
+      // Création de l'user et début de conv dans l'historique
+      userHistory.push([message.author.id, new Date().getTime()]);
+      history.push([messageString, response]);
 
-        message.reply(response);
-      });
-    }
-    catch (exception) {
-      console.log(exception);
-      message.reply("Sorry can you repeat ?");
-    }
+      message.reply(response);
+    });
   }
   // Déjà en conversation avec le bot
   else {
-    try {
-      cleverbot(messageString, history[userIndex]).then((response) => {
-        // Mets à jour l'historique de conv
-        history[userIndex].push(messageString);
-        history[userIndex].push(response);
-        message.reply(response);
-      });
-    }
-    catch (exception) {
-      console.log(exception);
-      message.reply("Sorry can you repeat ?");
-    }
+    cleverbot(messageString, history[userIndex]).catch(error => {
+      console.log(error);
+      message.reply("*Bip Boop- Reboot 100%*");
+      return;
+    }).then((response) => {
+      // Création de l'user et début de conv dans l'historique
+      history[userIndex].push(messageString);
+      history[userIndex].push(response);
+      message.reply(response);
+    });
   }
 };

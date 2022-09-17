@@ -19,6 +19,11 @@ client.on('ready', () => {
   console.log('Bot ready');
 });
 
+//Erreur lorsque l'on se connecte à cleverbot
+client.on('shardError', error => {
+  console.error('A websocket connection encountered an error:', error);
+});
+
 //Lorsqu'un message est envoyé
 client.on('messageCreate', (message) => {
   //Si le message vient d'un bot, on ne traite pas
@@ -86,7 +91,7 @@ client.on('messageCreate', (message) => {
       require('./commands/stat.js')(message, args, client);
       break;
     case 'c':
-      require('./commands/cleverbot.js')(message);
+      require('./commands/cleverbot.js')(message, args);
       break;
     case 'info':
       require('./commands/info.js')(message);
