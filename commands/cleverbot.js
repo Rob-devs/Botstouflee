@@ -39,21 +39,33 @@ module.exports = (message) => {
 
   // Premier message avec le bot
   if (userIndex === -1) {
-    cleverbot(messageString).then((response) => {
-      // Création de l'user et début de conv dans l'historique
-      userHistory.push([message.author.id, new Date().getTime()]);
-      history.push([messageString, response]);
+    try {
+      cleverbot(messageString).then((response) => {
+        // Création de l'user et début de conv dans l'historique
+        userHistory.push([message.author.id, new Date().getTime()]);
+        history.push([messageString, response]);
 
-      message.reply(response);
-    });
+        message.reply(response);
+      });
+    }
+    catch (exception) {
+      console.log(exception);
+      message.reply("Sorry can you repeat ?");
+    }
   }
   // Déjà en conversation avec le bot
   else {
-    cleverbot(messageString, history[userIndex]).then((response) => {
-      // Mets à jour l'historique de conv
-      history[userIndex].push(messageString);
-      history[userIndex].push(response);
-      message.reply(response);
-    });
+    try {
+      cleverbot(messageString, history[userIndex]).then((response) => {
+        // Mets à jour l'historique de conv
+        history[userIndex].push(messageString);
+        history[userIndex].push(response);
+        message.reply(response);
+      });
+    }
+    catch (exception) {
+      console.log(exception);
+      message.reply("Sorry can you repeat ?");
+    }
   }
 };

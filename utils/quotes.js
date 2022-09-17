@@ -22,6 +22,8 @@ module.exports = {
     "Putain j'ai fait 50€ de course pour pas grand chose\nAberrant les prix\nJe vais continuer de faire le ramadan et manger que 1 fois tout les 2j beaucoup plus rentable mdr": "Daarky",
     "Le jour où j'aurais arby les Charles je vais leur chier a la gueule avec le elbris de fdp il vas counter et arby va revenir et violer ces parents": "Daarky",
     "Qui joue avec le son aussi\nDès qu'une waifu se fait hit ta l'impression elle se fait violer\nJ'ai try une fois plus jamais je recommence": "Daarky",
+    "Vasie ce tel de merde qui envoie des stickers tout seul mtn\nVivement que j'ai un pc que je le fracasse par terre": "Daarky",
+    "Je viens d'apprendre à volé\nC'est terrible\nJe roule en trotinette sur un trottoir j'allume pas la lumière parceque ya des voitures en face donc chui pas fdp\nY avait un rebord de fdp genre 10cm au bout du trottoir je l'ai pas vue\nJ'ai volé sur 2m\nJe me suis éclaté ça mère": "Daarky",
     "- Mange alors\n- Pas les moyens": "Xoxtin & Daarky",
     "Utilisation simple et sans bavure de la méthode": "Soow",
     "Elle avait un cul qui ne se refuse pas": "EFX",

@@ -2,21 +2,11 @@ const Canvas = require('@napi-rs/canvas');
 const { AttachmentBuilder } = require("discord.js");
 
 //Envoi d'une image de l'utilisateur ping avec un chapeau bunny
-module.exports = async (message, args, client) => {
+module.exports = async (message) => {
 
-    let avatar;
-    //Si pas d'utilisateur ping
-    if (args.length < 1 || !(/<@.*>/.test(args[0]))) {
-        //Récuparation de l'avatar de l'auteur
-        avatar = await Canvas.loadImage(message.author.displayAvatarURL());
-    }
-    //Sinon
-    else {
-        //Récupération de l'avatar de l'utilisateur
-        let userID = args.shift();
-        userID = userID.substring(2, userID.length - 1);
-        avatar = await Canvas.loadImage(client.users.cache.find(user => user.id === userID).displayAvatarURL());
-    }
+    //Récupération de l'avatar
+    let member = message.mentions.members.first() || message.guild.members.cache.get(message.author.id);
+    let avatar = await Canvas.loadImage(member.user.displayAvatarURL());
 
     //Création de l'image à compléter
     const canvas = Canvas.createCanvas(400, 650);

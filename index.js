@@ -74,19 +74,22 @@ client.on('messageCreate', (message) => {
       require('./commands/quoi.js')(message);
       break;
     case 'hug':
-      require('./commands/hug.js')(message, args, client);
+      require('./commands/hug.js')(message);
       break;
     case 'punch':
-      require('./commands/punch.js')(message, args, client);
+      require('./commands/punch.js')(message);
       break;
     case 'hat':
-      require('./commands/hat.js')(message, args, client);
+      require('./commands/hat.js')(message);
       break;
     case 'stat':
       require('./commands/stat.js')(message, args, client);
       break;
     case 'c':
-      require('./commands/cleverbot.js')(message, args, client);
+      require('./commands/cleverbot.js')(message);
+      break;
+    case 'info':
+      require('./commands/info.js')(message);
       break;
     default:
       break;

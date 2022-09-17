@@ -37,6 +37,11 @@ module.exports = async (message, prefixCmd) => {
                 inline: false
             },
             {
+                name: prefixCmd + "info [@user]",
+                value: "✦ Toutes les infos des choupiz !!",
+                inline: false
+            },
+            {
                 name: "[Epic Report]",
                 value: "✦ Botstouflee converti automatiquement les rapports\ngénérés par Epic Report.",
                 inline: false
