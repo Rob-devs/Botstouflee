@@ -55,11 +55,13 @@ module.exports = (message, args) => {
       message.reply("*Bip Boop- Reboot 100%*");
       return;
     }).then((response) => {
-      // Création de l'user et début de conv dans l'historique
-      userHistory.push([message.author.id, new Date().getTime()]);
-      history.push([messageString, response]);
+      if (typeof response === 'string' && response != '') {
+        // Création de l'user et début de conv dans l'historique
+        userHistory.push([message.author.id, new Date().getTime()]);
+        history.push([messageString, response]);
 
-      message.reply(response);
+        message.reply(response);
+      }
     });
   }
   // Déjà en conversation avec le bot
@@ -69,10 +71,12 @@ module.exports = (message, args) => {
       message.reply("*Bip Boop- Reboot 100%*");
       return;
     }).then((response) => {
-      // Création de l'user et début de conv dans l'historique
-      history[userIndex].push(messageString);
-      history[userIndex].push(response);
-      message.reply(response);
+      if (typeof response === 'string' && response != '') {
+        // Création de l'user et début de conv dans l'historique
+        history[userIndex].push(messageString);
+        history[userIndex].push(response);
+        message.reply(response);
+      }
     });
   }
 };
