@@ -10,18 +10,13 @@ const client = new Client({
 });
 
 //Préfixe des commandes
-const prefixCmd = '&';
+const prefixCmd = '!';
 
 //Lorsque le bot est prêt
 client.on('ready', () => {
   //Message de status
   client.user.setActivity(prefixCmd + 'help');
   console.log('Bot ready');
-});
-
-//Erreur lorsque l'on se connecte à cleverbot
-client.on('shardError', error => {
-  console.error('A websocket connection encountered an error:', error);
 });
 
 //Lorsqu'un message est envoyé

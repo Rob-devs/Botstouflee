@@ -51,7 +51,7 @@ module.exports = (message, args) => {
   // Premier message avec le bot
   if (userIndex === -1) {
     cleverbot(messageString).catch(error => {
-      console.log(error);
+      console.log("Cleverbot API did not respond");
       message.reply("*Bip Boop- Reboot 100%*");
       return;
     }).then((response) => {
@@ -67,7 +67,7 @@ module.exports = (message, args) => {
   // Déjà en conversation avec le bot
   else {
     cleverbot(messageString, history[userIndex]).catch(error => {
-      console.log(error);
+      console.log("Cleverbot API did not respond");
       message.reply("*Bip Boop- Reboot 100%*");
       return;
     }).then((response) => {

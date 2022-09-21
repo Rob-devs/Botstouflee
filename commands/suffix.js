@@ -5,7 +5,11 @@ module.exports = (message) => {
     let txt = message.content.replace(/[\W_]+/g, " ").trim().toLowerCase();
 
     //Réaction FEUR
-    if (txt.endsWith("quoi")) {
+    if (txt.endsWith("quoi") ||
+        txt.endsWith("koi") ||
+        txt.endsWith("koa") ||
+        txt.endsWith("kwa") ||
+        txt.endsWith("qwa")) {
         message.react('🇫');
         message.react('🇪');
         message.react('🇺');
