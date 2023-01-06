@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, AttachmentBuilder } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
 
 const client = new Client({
@@ -10,7 +10,7 @@ const client = new Client({
 });
 
 //Préfixe des commandes
-const prefixCmd = '&';
+const prefixCmd = '!';
 
 //Lorsque le bot est prêt
 client.on('ready', () => {
@@ -48,6 +48,9 @@ client.on('messageCreate', (message) => {
     case 'mission':
       require('./commands/mission.js')(message);
       break;
+    case 'husbando':
+      require('./commands/husbando.js')(message, args);
+      break;
     case 'help':
       require('./commands/help.js')(message, prefixCmd);
       break;
@@ -62,13 +65,16 @@ client.on('messageCreate', (message) => {
       require('./commands/hello.js')(message);
       break;
     case 'culture':
-      require('./commands/culture.js')(message);
+      require('./commands/culture.js')(message, args);
       break;
     case 'efx':
       require('./commands/efx.js')(message);
       break;
     case 'bunny':
       require('./commands/bunny.js')(message);
+      break;
+    case 'cero':
+      require('./commands/cero.js')(message);
       break;
     case 'quoi':
       require('./commands/quoi.js')(message);
@@ -82,6 +88,11 @@ client.on('messageCreate', (message) => {
     case 'hat':
       require('./commands/hat.js')(message);
       break;
+    case 'resistance':
+    case 'baleinodon':
+    case 'lss':
+      require('./commands/lss.js')(message, command);
+      break;
     case 'stat':
       require('./commands/stat.js')(message, args, client);
       break;
@@ -91,10 +102,20 @@ client.on('messageCreate', (message) => {
     case 'info':
       require('./commands/info.js')(message);
       break;
+    case 'gif':
+      require('./commands/gif.js')(message, args);
+      break;
     default:
       break;
   }
 });
 
-client.login(process.env.BOT_TOKEN);
+//Lorsqu'un message est supprimé
+client.on('messageDelete', (message) => {
+  if (message.author.id == require("./utils/botID.js")) {
+    require('./commands/censure.js')(message);
+  }
+});
+
+client.login(process.env.BOT_TEST_TOKEN);
 
