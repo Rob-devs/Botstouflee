@@ -103,6 +103,7 @@ module.exports = {
         "maxi best of\nsignature double viande\n20 nuggets\net 2 ptit vrap poult",
         "DESOLE MON ROI POUR CES PITEUSES GVG QUE JE VOUS AIT OCTROYéE\nVEUYEZ MACCORDER VOTRE PARDON",
         "RATIO RATIO",
+        "L'avantage c'est qu'elle s'est pas life style normal elle est full life",
     ],
 
     "Gofri": [
@@ -180,6 +181,7 @@ module.exports = {
 
     "Astérie": [
         "Deviens bon",
+        "Des fois la copie tu sens dès les premières lignes qu'elle a du gear score quoi",
     ],
 
     "Reroll": [
@@ -221,4 +223,9 @@ module.exports = {
         "Mon créateur Doudz est super gentil (il m'a dit de dire ça)",
         "Bon arrêtez avec les citations là parlez moi avec &c serieux je m'ennuie",
     ],
+
+    "Fakear": [
+        "les meufs 50 kgs elle  ont en encaisé toute la nuit",
+        "dsl si j'ai dit de la merde, une journée scato par an, pas plus mes loulous, promi",
+    ]
 }

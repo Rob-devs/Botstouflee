@@ -23,9 +23,9 @@ module.exports = (message) => {
     let txt = message.content.replace(/[\W_]+/g, " ").trim().toLowerCase();
 
     //Réactions aléatoires
-    let jokeCheck = Math.floor(Math.random() * 100) > 94;
-    let rdmMessage = Math.floor(Math.random() * 200) == 0;
-    let cleverCheck = Math.floor(Math.random() * 320) == 0;
+    let jokeCheck = Math.floor(Math.random() * 100) > 98;
+    let rdmMessage = Math.floor(Math.random() * 250) == 0;
+    let cleverCheck = Math.floor(Math.random() * 350) == 0;
 
     const reactions = require("../utils/reactions.js");
     const keys = Object.keys(reactions);
@@ -64,6 +64,7 @@ module.exports = (message) => {
             "RandPic6.png",
             "RandPic7.png",
             "RandPic8.png",
+            "RandPic9.png",
             "RandGif1.gif",
             "RandGif2.gif",
             "RandGif3.gif",

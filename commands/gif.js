@@ -18,12 +18,14 @@ module.exports = async (message, args) => {
     const url = `https://api.tenor.com/v2/search?q=${filtre}&key=${process.env.TENOR_KEY}&limit=10`;
     const reponse = await fetch(url);
     const result = await reponse.json();
+
+    //Si pas de résultat trouvé
     if (result.results.length == 0) {
         message.reply({
             content: "Désolé j'ai pas trouvé de gif pour ça",
             files: ['./images/RandPic1.png']
         });
-    }
+    } //Sinon
     else {
         const index = Math.floor(Math.random() * result.results.length);
 
