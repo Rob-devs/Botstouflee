@@ -17,6 +17,8 @@ module.exports = (message, args) => {
     let randomHusbando;
 
     switch (nom.trim().toLowerCase()) {
+        case "rio":
+        case "ml violet":
         case "riolet":
             randomHusbando = Object.keys(husbandos)[0];
             break;
@@ -29,6 +31,7 @@ module.exports = (message, args) => {
         case "kayron":
             randomHusbando = Object.keys(husbandos)[3];
             break;
+        case "ml pavel":
         case "cavel":
             randomHusbando = Object.keys(husbandos)[4];
             break;

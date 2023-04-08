@@ -56,18 +56,22 @@ module.exports = (message) => {
     else if (rdmMessage) {
         //Réponse aléatoire
         let files = [
-            "RandPic1.png",
-            "RandPic2.png",
-            "RandPic3.png",
-            "RandPic4.png",
-            "RandPic5.png",
-            "RandPic6.png",
-            "RandPic7.png",
-            "RandPic8.png",
-            "RandPic9.png",
-            "RandGif1.gif",
-            "RandGif2.gif",
-            "RandGif3.gif",
+            "pic_armscrossed.png",
+            "pic_sad.png",
+            "pic_sadhug.png",
+            "pic_hello.png",
+            "pic_paquet.png",
+            "pic_phone.png",
+            "pic_racist.png",
+            "pic_sleepy.png",
+            "pic_happydog.png",
+            "pic_soldier.png",
+            "pic_souci.png",
+            "gif_driving.gif",
+            "gif_duck.gif",
+            "gif_gamble.gif",
+            "gif_noted.gif",
+            "gif_tasty.gif",
         ];
         let random = Math.floor(Math.random() * files.length);
 

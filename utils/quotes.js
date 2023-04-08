@@ -190,6 +190,7 @@ module.exports = {
 
     "Doudi": [
         "@darksoul j'ai un probleme quand je s2 avec alots il silence les ennemis au lieu de push je comprends pas",
+        "Ptdrrr les autres guildes font des rapport ici dans le chan gvg ca parle de boobs"
     ],
 
     "Lainien": [
@@ -205,6 +206,8 @@ module.exports = {
         "J'ai été faible psychologiquement, le deferlement de rng sur le premier draw m'a fait tilter",
         "3 draws, j'ai mental boom lorsque je me suis fais enculer par mon speed tune au premier fight",
         "Bon ba 1 win 1 draw j'ai pris ma sodomie rng habituelle tout va bien",
+        "J'ai pris un draw pcq une pétasse a décidé de dual sur choux alors que j'étais en maitrise total, counter double 5%",
+        "J'aurai pris mon draw mid quand même sur la pute de shennah a 300 ER qui a tout resist et survécu avec 18 hp",
     ],
 
     "Nrdl": [
@@ -227,5 +230,10 @@ module.exports = {
     "Fakear": [
         "les meufs 50 kgs elle  ont en encaisé toute la nuit",
         "dsl si j'ai dit de la merde, une journée scato par an, pas plus mes loulous, promi",
+    ],
+
+    "TFormars": [
+        "si t'as pas le choix tu stall\nsinon cleave c'est la vie",
+        "mdr je comprends pas pk vous jouez pas sez il est trop meta",
     ]
 }

@@ -51,6 +51,9 @@ client.on('messageCreate', (message) => {
     case 'husbando':
       require('./commands/husbando.js')(message, args);
       break;
+    case 'react':
+      require('./commands/react.js')(message, args);
+      break;
     case 'help':
       require('./commands/help.js')(message, prefixCmd);
       break;
@@ -93,6 +96,12 @@ client.on('messageCreate', (message) => {
     case 'lss':
       require('./commands/lss.js')(message, command);
       break;
+    case 'gratz':
+      require('./commands/gratz.js')(message, client);
+      break;
+    case 'faute':
+      require('./commands/faute.js')(message, args);
+      break;
     case 'stat':
       require('./commands/stat.js')(message, args, client);
       break;
@@ -104,6 +113,9 @@ client.on('messageCreate', (message) => {
       break;
     case 'gif':
       require('./commands/gif.js')(message, args);
+      break;
+    case 'uraken':
+      require('./commands/uraken.js')(message);
       break;
     default:
       break;

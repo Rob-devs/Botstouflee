@@ -5,7 +5,7 @@ module.exports = async (message, args, client) => {
     let random = Math.floor(Math.random() * 101);
 
     //Construction du message
-    let msg = "*Calcul des chances de succès en cours...*\n";
+    let msg = "```bash\nCalcul des chances de succès en cours...```";
 
     //Message envoyé par l'utilisateur
     newMessage = "";
@@ -27,10 +27,10 @@ module.exports = async (message, args, client) => {
     //Si le message utilisateur n'est pas vide
     if (newMessage != "") {
         newMessage = newMessage.trim();
-        msg += "*Demande :* 〔" + newMessage + "〕\n";
+        msg += "`➤ Demande :` " + "\"" +newMessage + "\"\n";
     }
 
-    msg += "\n[**";
+    msg += "\n**";
 
     //Espacement si seulement 1 caractère (chiffre)
     if (random < 10) {
@@ -44,9 +44,9 @@ module.exports = async (message, args, client) => {
         msg += "█";
     }
     for (j = i; j < 100; j += 2) {
-        msg += "_";
+        msg += "-";
     }
-    msg += "` ]\n\n";
+    msg += "`\n\n";
 
     //Ajout du message selon la valeure obtenue
     if (random == 100)
@@ -55,19 +55,36 @@ module.exports = async (message, args, client) => {
         msg += "Incroyable CHAVAIS CHAVAIS !!";
     else if (random > 85)
         msg += "Énormes chances de succès !!";
+    else if (random > 72)
+        msg += "Voilà j'aime bien !!";
     else if (random > 60)
         msg += "Pas mal !!";
     else if (random > 40)
         msg += "Tu vas y arriver !!";
-    else if (random > 15)
+    else if (random > 27)
         msg += "J'ai vu pire let's go !!";
+    else if (random > 15)
+        msg += "T'inquiète pas ça va le faire !!";
     else if (random > 5)
         msg += "Y croire est le premier pas vers la réussite !!";
     else
-        msg += "God is dead..."
+        msg += "Ok là c'est mort..."
 
 
     //Envoi du message
-    message.reply(msg);
-
+    if (random == 100) {
+        message.reply({
+            content: msg,
+            files: ['./images/UltraBunny.png']
+        });
+    }
+    else if (random <= 5) {
+        message.reply({
+            content: msg,
+            files: ['./images/pic_sad.png']
+        });
+    }
+    else {
+        message.reply(msg);
+    }
 }

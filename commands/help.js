@@ -49,7 +49,9 @@ module.exports = async (message, prefixCmd) => {
                 value: "**" + prefixCmd + "hug [@user] :** Câlin général !"
                     + "\n**" + prefixCmd + "punch [@user] :** Quel vilain celui-là !!!"
                     + "\n**" + prefixCmd + "hat [@user] :** Tu as fait tomber ton chapeau."
-                    + "\n**" + prefixCmd + "lss [@user] :** Gloire au Leader Suprême !!",
+                    + "\n**" + prefixCmd + "lss [@user] :** Gloire au Leader Suprême !!"
+                    + "\n**" + prefixCmd + "gratz [@user] :** Bravo !!"
+                    + "\n**" + prefixCmd + "faute [message] :** Qu'est ce qu'ils m'énervent ceux-là !!",
                 inline: false
             },
             {
@@ -79,7 +81,8 @@ module.exports = async (message, prefixCmd) => {
                     + "\n**" + prefixCmd + "fusee :** Qu'est ce que c'est que ce truc là aussi ?"
                     + "\n**" + prefixCmd + "bunny :** *misete ageru, BUNNY NO CHIKARA !*"
                     + "\n**" + prefixCmd + "cero :** *Destruction.*"
-                    + "\n**" + prefixCmd + "gif [recherche] :** *Recherche un gif !!*",
+                    + "\n**" + prefixCmd + "gif [recherche] :** *Recherche un gif !!*"
+                    + "\n**" + prefixCmd + "react [reaction] :** *Fais moi réagir !!*",
                 inline: false
             },
         ]));
