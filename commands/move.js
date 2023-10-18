@@ -1,5 +1,5 @@
 //Déplacement d'un message envoyé dans le channel spécifié
-module.exports = (message, command, args, client) => {
+module.exports = async (message, command, args, client) => {
 
     //Image envoyé dans le message, null s'il n'y en a pas
     const image = message.attachments.first() ? message.attachments.first().url : null;
@@ -30,22 +30,35 @@ module.exports = (message, command, args, client) => {
 
     //Construction du message
     newMessage = "";
+    var linkReplaced = false;
     args.forEach(element => {
         newMessage += element + " ";
     });
     if (newMessage == "") {
         newMessage += "On m'a dit de transférer ça :"
     }
+    if (newMessage.includes('https://twitter.com/')) {
+        newMessage = newMessage.replace('https://twitter.com/', 'https://vxtwitter.com/');
+        linkReplaced = true;
+    }  
+    else if (newMessage.includes('https://x.com/')) {
+        newMessage = newMessage.replace('https://x.com/', 'https://vxtwitter.com/');
+        linkReplaced = true;
+    }  
 
     //Envoi du message à chaque channel
+    channels = '';
     chanIDs.forEach(ID => {
         let newChannel = client.channels.cache.get(ID);
         //Envoi du message si le chan existe
         if (newChannel) {
-            newChannel.send(newMessage);
-            if (image != null)
-                newChannel.send(image);
-            done = true;
+            if (newChannel.permissionsFor(client.user).has('SEND_MESSAGES')) {
+                newChannel.send(newMessage);
+                if (image != null)
+                    newChannel.send(image);
+                done = true;
+                channels += '<#' + newChannel + '> ';
+            }
         }
         else {
             message.react('🟥');
@@ -54,9 +67,19 @@ module.exports = (message, command, args, client) => {
     });
     //Si l'action s'est bien passée
     if (done) {
-        if (command === "g")
-            message.react('✅');
-        else
+        if (command === "s") {
             message.delete();
+        }
+        else if (command === "g") {
+            if (linkReplaced) {
+                sentMessage = await message.channel.send(newMessage);
+                sentMessage = await message.channel.send(channels);
+                sentMessage.react('✅');
+                message.delete();
+            }
+            else {
+                message.react('✅');
+            }
+        }
     }
 }

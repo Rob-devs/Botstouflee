@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@napi-rs/canvas": "^0.1.29",
-    "alexa-bot-api-v4": "^4.1.4",
     "cleverbot-free": "^1.1.11",
     "discord.js": "^14.2.0",
     "dotenv": "^16.0.1",

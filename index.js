@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Permissions } = require('discord.js');
 require('dotenv').config();
 
 const client = new Client({
@@ -32,7 +32,6 @@ client.on('messageCreate', (message) => {
 
   //Test du suffixe
   if (!message.content.startsWith(prefixCmd)) {
-    require('./commands/suffix.js')(message);
     return;
   }
 
@@ -43,12 +42,15 @@ client.on('messageCreate', (message) => {
   //Commandes
   switch (command) {
     case 'choupiz':
-      require('./commands/choupiz.js')(message, args, client);
+      if (message.channel.permissionsFor(client.user).has('ADD_REACTIONS')) {
+        require('./commands/choupiz.js')(message, args, client);
+      }
       break;
     case 'mission':
       require('./commands/mission.js')(message);
       break;
     case 'husbando':
+    case 'h':
       require('./commands/husbando.js')(message, args);
       break;
     case 'react':
@@ -59,7 +61,9 @@ client.on('messageCreate', (message) => {
       break;
     case 'g':
     case 's':
-      require('./commands/move.js')(message, command, args, client);
+      if (message.channel.permissionsFor(client.user).has('MANAGE_MESSAGES')) {
+        require('./commands/move.js')(message, command, args, client);
+      }
       break;
     case 'fusee':
       require('./commands/fusee.js')(message);

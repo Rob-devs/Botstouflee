@@ -6,6 +6,8 @@ module.exports = async (message, prefixCmd) => {
 
     //Generate pages
     const pages = [];
+
+    // Commandes utiles
     pages.push(new Discord.EmbedBuilder()
         .setTitle("**Liste des commandes**")
         .setColor(0xff2929)
@@ -34,6 +36,7 @@ module.exports = async (message, prefixCmd) => {
                 inline: false
             },
         ]));
+    // Incontournables
     pages.push(new Discord.EmbedBuilder()
         .setTitle("**Liste des commandes**")
         .setColor(0xff96fb)
@@ -63,6 +66,7 @@ module.exports = async (message, prefixCmd) => {
                 inline: false
             },
         ]));
+    // Surprises
     pages.push(new Discord.EmbedBuilder()
         .setTitle("**Liste des commandes**")
         .setColor(0x32bbff)

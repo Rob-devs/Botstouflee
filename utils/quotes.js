@@ -12,6 +12,7 @@ module.exports = {
         "je parle jamais de sexe",
         "le seul truc à toucher sur ce perso, c'est ces énormes mamelles ! si l'engin à bien 4000 ans, entre ses cuisses c'est un musée de conservation des MST faut pas y aller",
         "et pour Punch, il est venu dormir avec moi de son plein gré après que soow lui a dit qu'il était tout mou",
+        "il est tellement bien que je l'ai acheté 3 fois\nUne preco Amazon qui devait arriver le 12 puis passé au 15\Une commande Amazon le 12 qui devait arriver le 12 puis passé au 13\nEt un achat demat à 70 balles nique Nintendo",
     ],
 
     "Bistouflee": [
@@ -66,6 +67,8 @@ module.exports = {
         "Dans cet appel à se faire bully on peut entrevoir la raison qui pousse les gens au bdsm ou la recherche de l'affection à n'importe quel prix",
         "Nous sommes tous le degen de quelqu'un",
         "T'as une bite, tu te branles mais ça ne fait pas de toi quelqu'un de sexuellement actif",
+        "Je ne paye pas pour baiser ça. Ça serait à elle de payer\nElle me file un gros billet je la détruit à l'aide de viagra",
+        "J'ai plusieurs fois explosé son cul",
     ],
 
     "Fhulgrim": [
@@ -90,6 +93,7 @@ module.exports = {
         "Franchement les noir qui arrive en traînant les pieds dans le magasin j'ai vraiment envie de les fracasser",
         "Y'a des arabe qui foute leur rap de merde da's le train a fond avec leur enceinte marshal sûrement volée",
         "J'allais faire une remarque raciste puis j'me suis souvenu que j'ai passer un accord",
+        "Je suis pris dans le genjustu de la Turquie",
     ],
 
     "Zickys": [
@@ -130,6 +134,7 @@ module.exports = {
         "j'essaaye toujours d'oublier la momo de bibz mais ça veut pas quitter mon esprit troublé par cette vision nefaste à ma rétine",
         "le début du règne de Doudz over bibz neo o telo",
         "j'me fais encore raatio par des moustiques\ndemain je full vinaigre ma chambre ffs",
+        "Envie de gerber mon tacos chicken chika il m'a mit un peu trop de sauce comparer à d'habitude j'ai le bide en pls pendant que je m'échauffe bien comme y faut csc",
     ],
 
     "Perfo": [
@@ -160,6 +165,7 @@ module.exports = {
         "Tjr être maître de sois même bourré",
         "Le niveau c'est l'effort et l'application que tu mets dans tes gvg",
         "Soyez rigoureux dans vos attaques ne sous estimez pas vos adversaires et decimez les comme il se doit",
+        "perfo il fait le tour du monde pour un schnek\nmais faire 3 stations de métro pour faire ces kheys\nY'A PLUS PERSONNE",
     ],
 
     "Tout le monde": [
@@ -235,5 +241,10 @@ module.exports = {
     "TFormars": [
         "si t'as pas le choix tu stall\nsinon cleave c'est la vie",
         "mdr je comprends pas pk vous jouez pas sez il est trop meta",
+        "full atk set atk torrent\ninsane"
+    ],
+
+    "Ropty": [
+        "Franchement tant qu'elle a des boobs je bang et pity",
     ]
 }
