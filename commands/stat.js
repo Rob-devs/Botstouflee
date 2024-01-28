@@ -1,90 +1,31 @@
-//Envoi le % de succès d'un message envoyé
-module.exports = async (message, args, client) => {
+module.exports = async (interaction) => {
+  const random = Math.floor(Math.random() * 101);
 
-    //Nombre aléatoire entre 0 et 100
-    let random = Math.floor(Math.random() * 101);
+  let message = interaction.options.getString("message");
+  let newMessage = "```bash\nCalculating...```\n";
 
-    //Construction du message
-    let msg = "```bash\nCalcul des chances de succès en cours...```";
+  if (message) {
+    newMessage += `➤ "${message}"\n`;
+  }
 
-    //Message envoyé par l'utilisateur
-    newMessage = "";
-    //Pour chaque mot
-    args.forEach(element => {
-        //Si c'est un ping d'utilisateur
-        if ((/<@.*>/.test(element))) {
-            //Conversion en nom
-            newMessage += require("../utils/nameFromID.js")(element, client);
-        }
-        //Sinon
-        else {
-            //Ajout du mot
-            newMessage += element.replace(/[*`_~]/g, '');
-        }
-        //Espacement entre les mots
-        newMessage += " ";
-    });
-    //Si le message utilisateur n'est pas vide
-    if (newMessage != "") {
-        newMessage = newMessage.trim();
-        msg += "`➤ Demande :` " + "\"" +newMessage + "\"\n";
-    }
+  newMessage += `**${random
+    .toString()
+    .padStart(3, " ")}%** \`${createProgressBar(random)}\`\n\n`;
 
-    msg += "\n**";
+  const replyOptions = {
+    content: newMessage,
+    files:
+      random === 100
+        ? ["./images/ultrabunny.png"]
+        : random <= 5
+        ? ["./images/pic_sad.png"]
+        : [],
+  };
+  interaction.reply(replyOptions);
+};
 
-    //Espacement si seulement 1 caractère (chiffre)
-    if (random < 10) {
-        msg += " ";
-    }
-    msg += random.toString() + "%** `";
-
-    //Construction de la barre de progression
-    var i;
-    for (i = 0; i < random; i += 2) {
-        msg += "█";
-    }
-    for (j = i; j < 100; j += 2) {
-        msg += "-";
-    }
-    msg += "`\n\n";
-
-    //Ajout du message selon la valeure obtenue
-    if (random == 100)
-        msg += "Utilisation parfaite de la méthode";
-    else if (random > 95)
-        msg += "Incroyable CHAVAIS CHAVAIS !!";
-    else if (random > 85)
-        msg += "Énormes chances de succès !!";
-    else if (random > 72)
-        msg += "Voilà j'aime bien !!";
-    else if (random > 60)
-        msg += "Pas mal !!";
-    else if (random > 40)
-        msg += "Tu vas y arriver !!";
-    else if (random > 27)
-        msg += "J'ai vu pire let's go !!";
-    else if (random > 15)
-        msg += "T'inquiète pas ça va le faire !!";
-    else if (random > 5)
-        msg += "Y croire est le premier pas vers la réussite !!";
-    else
-        msg += "Ok là c'est mort..."
-
-
-    //Envoi du message
-    if (random == 100) {
-        message.reply({
-            content: msg,
-            files: ['./images/UltraBunny.png']
-        });
-    }
-    else if (random <= 5) {
-        message.reply({
-            content: msg,
-            files: ['./images/pic_sad.png']
-        });
-    }
-    else {
-        message.reply(msg);
-    }
+function createProgressBar(percentage) {
+  const filledBarLength = Math.floor(percentage / 2);
+  const emptyBarLength = 50 - filledBarLength;
+  return "█".repeat(filledBarLength) + "-".repeat(emptyBarLength);
 }
