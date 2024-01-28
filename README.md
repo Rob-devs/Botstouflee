@@ -51,6 +51,3 @@ node index.js
 ## Hosting
 The bot is hosted on Sparked Host, ensuring reliable uptime and performance. For more information about our hosting provider, visit [Sparked Host](https://sparkedhost.com/).
 
-## Invite the Bot
-To add this bot to your Discord server, use the following invite link: [Invite Bot](https://discord.com/api/oauth2/authorize?client_id=1010611126578450543&permissions=8&scope=bot)
-
