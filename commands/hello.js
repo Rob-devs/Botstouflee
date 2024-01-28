@@ -1,5 +1,5 @@
 module.exports = (interaction) => {
-  interaction.channel.send(
+  interaction.reply(
     "╔═══˚✩ ⋆. ̊ \n     ✧ 𝑯𝑬𝑳𝑳𝑶 𝑪𝑯𝑨𝑻 ✧\n                       ˚✩ ⋆. ̊═══╝"
   );
 };

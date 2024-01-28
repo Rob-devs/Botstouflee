@@ -3,9 +3,14 @@ const { AttachmentBuilder } = require("discord.js");
 
 module.exports = async (interaction) => {
   //Récupération de l'avatar;
-  let avatar = await require("../utils/loadUserAvatar")(
-    interaction.options.getUser("user")
-  );
+  let avatar;
+  if (interaction.options.getUser("user")) {
+    avatar = await Canvas.loadImage("./images/botstouflee.png");
+  } else {
+    avatar = await require("../utils/loadUserAvatar")(
+      interaction.options.getUser("user")
+    );
+  }
   let avatarPoster = await require("../utils/loadUserAvatar")(interaction.user);
 
   //Création de l'image à compléter
@@ -26,5 +31,5 @@ module.exports = async (interaction) => {
   const attachment = new AttachmentBuilder(await canvas.encode("png"), {
     name: "profile-image.png",
   });
-  interaction.channel.send({ files: [attachment] });
+  interaction.reply({ files: [attachment] });
 };

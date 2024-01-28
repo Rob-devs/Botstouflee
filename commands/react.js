@@ -14,7 +14,7 @@ module.exports = (interaction) => {
 
   let randomReaction = reactions[Math.floor(Math.random() * reactions.length)];
 
-  interaction.channel.send({
+  interaction.reply({
     files: ["./images/" + randomReaction],
   });
 };
