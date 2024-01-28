@@ -7,7 +7,7 @@ module.exports = async (interaction) => {
   //Récupération de l'avatar
   let avatar;
 
-  if (member.user.id == process.env.BOT_ID) {
+  if (interaction.options.getUser("user").id == process.env.BOT_ID) {
     avatar = await require("../utils/loadUserAvatar")(interaction.user);
     punch = "./images/punchback.png";
   } else {
@@ -26,7 +26,7 @@ module.exports = async (interaction) => {
   const attachment = new AttachmentBuilder(await canvas.encode("png"), {
     name: "profile-image.png",
   });
-  await interaction.channel.send({ files: [attachment] });
+  await interaction.reply({ files: [attachment] });
 
   if (punch == "./images/punchback.png") {
     interaction.channel.send("**KNOW YOUR PLACE !!**");

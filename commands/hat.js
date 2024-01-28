@@ -23,5 +23,5 @@ module.exports = async (interaction) => {
   const attachment = new AttachmentBuilder(await canvas.encode("png"), {
     name: "profile-image.png",
   });
-  interaction.channel.send({ files: [attachment] });
+  interaction.reply({ files: [attachment] });
 };
