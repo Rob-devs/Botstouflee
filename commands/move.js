@@ -26,21 +26,31 @@ module.exports = async (interaction) => {
 
   if (channelOption) {
     try {
-      await channelOption.send({ content: newMessage });
+      let channelMessageOptions = { content: newMessage };
       if (image) {
-        await channelOption.send({ files: [image] });
+        channelMessageOptions.files = [image];
       }
+
+      await channelOption.send(channelMessageOptions);
 
       if (keepOption === false) {
         await interaction.reply({
-          content: "✅ Content moved and original message deleted.",
+          content: `✅ Content moved to channel ${channelOption} and original message deleted.`,
           ephemeral: true,
         });
       } else {
-        await interaction.reply({
-          content: "✅ Content moved.",
-          ephemeral: true,
-        });
+        let replyOptions = {
+          content:
+            `✅ Content moved to channel ${channelOption}` +
+            (messageOption ? `: ${messageOption}` : "."),
+          ephemeral: false,
+        };
+
+        if (image) {
+          replyOptions.files = [image];
+        }
+
+        await interaction.reply(replyOptions);
       }
     } catch (error) {
       console.error(error);

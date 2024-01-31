@@ -50,4 +50,3 @@ node index.js
 
 ## Hosting
 The bot is hosted on Sparked Host, ensuring reliable uptime and performance. For more information about our hosting provider, visit [Sparked Host](https://sparkedhost.com/).
-
