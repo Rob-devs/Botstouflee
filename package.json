@@ -1,13 +1,10 @@
 {
   "dependencies": {
     "@napi-rs/canvas": "^0.1.29",
-    "cleverbot-free": "^1.1.11",
     "discord.js": "^14.2.0",
     "dotenv": "^16.0.1",
     "md5": "^2.3.0",
-    "node-fetch": "^2.6.7",
-    "npm": "^8.19.1",
-    "superagent": "^8.0.0"
+    "npm": "^10.4.0"
   },
   "name": "botstouflee",
   "description": "Discord bot",
@@ -18,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xRobbyGame/Botsouflee.git"
+    "url": "git+https://github.com/Rob-devs/Botstouflee"
   },
-  "author": "Doudi",
+  "author": "Rob'",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xRobbyGame/Botsouflee/issues"
+    "url": "https://github.com/Rob-devs/Botstouflee/issues"
   },
-  "homepage": "https://github.com/xRobbyGame/Botsouflee#readme"
+  "homepage": "https://github.com/Rob-devs/Botstouflee#readme"
 }
