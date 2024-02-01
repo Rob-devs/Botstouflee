@@ -12,6 +12,14 @@ module.exports = async (interaction) => {
   const messageOption = interaction.options.getString("message");
   const imageOption = interaction.options.getAttachment("image");
 
+  if (!messageOption && !imageOption) {
+    await interaction.reply({
+      content: "🟥 No content provided.",
+      ephemeral: true,
+    });
+    return;
+  }
+
   let newMessage = messageOption || "I was told to move this here :";
   const image = imageOption ? imageOption.url : null;
 
